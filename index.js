@@ -22,7 +22,7 @@ const mainFunction = async browser => {
     const angelAccount = await createAngelAccount(page);
     console.log(angelAccount);
 
-    await upvoteProductHunt(page);
+    await upvoteProductHunt(page, config.productSlug);
   } catch (err) {
     browser.close();
     console.log('Something wrong happened', err);

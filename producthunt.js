@@ -1,4 +1,4 @@
-const upvoteProductHunt = async page => {
+const upvoteProductHunt = async (page, productSlug) => {
   const navigationPromise = page.waitForNavigation({
     waitUntil: 'networkidle2'
   });
@@ -14,7 +14,7 @@ const upvoteProductHunt = async page => {
 
   await navigationPromise;
 
-  await page.goto('https://www.producthunt.com/posts/vetecey', {
+  await page.goto(`https://www.producthunt.com/posts/${productSlug}`, {
     waitUntil: 'networkidle2'
   });
 
