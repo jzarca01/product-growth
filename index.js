@@ -11,8 +11,7 @@ const recaptchaPlugin = RecaptchaPlugin({
 });
 puppeteer.use(recaptchaPlugin);
 
-// const pluginStealth = require('puppeteer-extra-plugin-stealth');
-//puppeteer.use(pluginStealth());
+const pluginStealth = require('puppeteer-extra-plugin-stealth');
 
 const mainFunction = async browser => {
   try {
@@ -40,6 +39,7 @@ async function asyncForEach(array, callback) {
   asyncForEach(accounts, async () => {
     const { ip, port } = await getProxy();
     console.log(`${ip}:${port}`);
+    puppeteer.use(pluginStealth());
     const browser = await puppeteer.launch({
       headless: false,
       slowMo: 100,
